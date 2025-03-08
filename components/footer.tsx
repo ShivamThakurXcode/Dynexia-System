@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
-import Link from "next/link"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -13,7 +13,9 @@ export default function Footer() {
             <Link href="/" className="text-lg font-bold">
               Logo
             </Link>
-            <p className="text-sm text-muted-foreground">Building the future of digital experiences.</p>
+            <p className="text-sm text-muted-foreground">
+              Building the future of digital experiences.
+            </p>
           </div>
           <div className="space-y-4">
             <h3 className="text-lg font-bold">Quick Links</h3>
@@ -55,18 +57,26 @@ export default function Footer() {
           </div>
           <div className="space-y-4">
             <h3 className="text-lg font-bold">Newsletter</h3>
-            <p className="text-sm text-muted-foreground">Subscribe to our newsletter for updates.</p>
+            <p className="text-sm text-muted-foreground">
+              Subscribe to our newsletter for updates.
+            </p>
             <form className="flex space-x-2">
-              <Input className="max-w-[300px] flex-1" placeholder="Enter your email" type="email" />
+              <Input
+                className="max-w-[300px] flex-1"
+                placeholder="Enter your email"
+                type="email"
+              />
               <Button type="submit">Subscribe</Button>
             </form>
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center">
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Company. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Dynexia System. All rights reserved. -
+            Shivam Thakur
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
-
