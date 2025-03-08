@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <>
       {/* Hero */}
-      <div className="container md:overflow-visible overflow-hidden py-24 lg:py-32">
+      <div className="container   py-24 lg:py-32">
         <img
           alt="shape"
           loading="lazy"
@@ -52,9 +52,8 @@ export default function Hero() {
           {/* End Col */}
         </div>
         {/* End Grid */}
-
-        <HoverEffectCards></HoverEffectCards>
       </div>
+      <HoverEffectCards></HoverEffectCards>
 
       {/* End Hero */}
     </>

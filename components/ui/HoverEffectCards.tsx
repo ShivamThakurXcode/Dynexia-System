@@ -32,13 +32,13 @@ const TiltedCard = ({
         top: `${index * 4}%`,
       }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="absolute border-5 rounded-md w-[80%] h-[8rem] sm:h-[12rem] md:h-[16rem] lg:h-[500px] cursor-pointer"
+      className="absolute border-5 rounded-md  w-[80%] h-[8rem] sm:h-[12rem] md:h-[16rem] lg:h-[500px] cursor-pointer"
     >
-      <div className="relative overflow-hidden border border-white/35 rounded-xl shadow-lg">
+      <div className="absolute scale-95 -left-10 -top-10   border border-white/35 rounded-xl shadow-lg">
         <img
           src={imageSrc}
           alt="Card"
-          className="w-full rounded-xl border-8 border-white/ h-full object-cover"
+          className="w-full rounded-xl  border-8 border-white/ h-full object-cover"
         />
       </div>
     </motion.div>
@@ -49,16 +49,21 @@ export default function HoverEffectCards() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="w-full overflow-x-hidden h-[100vh]">
-      <div className="flex absolute w-full max-w-screen-xl mt-10 left-0 mx-auto justify-center items-center min-h-screen">
-        {/* Radial Gradient Background */}
-        <div className="absolute -top-[10%] scale-[1.5] z-0 h-[20vh]  lg:h-[55%] max-h-full mx-auto w-[70%] bg-[radial-gradient(ellipse_at_center,_hsla(186,100%,42%,0.3)_10%,_hsla(186,100%,90%,0)_60%)] opacity-40 dark:opacity-100"></div>
-
+    <div className="w-full h-full min-h-screen ">
+      <div
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.6), rgba(0,0,0,0))",
+          maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.6), rgba(0,0,0,0))",
+        }}
+        className="flex absolute w-full  border overflow-visible h-full pt-20 left-0 mx-auto justify-center items-center min-h-screen"
+      >
         {/* Cards Container */}
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="absolute md:scale-90 lg:w-[100%] w-[87%] h-full flex justify-center items-center"
+          className="absolute overflow-visible md:scale-90 lg:w-[100%] w-[87%] h-full flex justify-center items-center"
         >
           <TiltedCard
             imageSrc="app-dark.webp"
