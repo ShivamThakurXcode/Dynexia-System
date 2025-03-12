@@ -22,7 +22,7 @@ const TiltedCard = ({
       transition={{ type: "spring", stiffness: 60, damping: 12 }}
       className="absolute border-5 rounded-md w-[80%] h-[8rem] sm:h-[12rem] md:h-[16rem] lg:h-[500px] cursor-pointer"
     >
-      <div className="absolute scale-95 -left-10 -top-10 border border-white/35 rounded-xl shadow-lg">
+      <div className="absolute scale-95 -left-10 -top-10 border border-black/80 rounded-xl shadow-lg">
         <img
           src={imageSrc}
           alt="Card"
@@ -42,15 +42,15 @@ export default function ScrollEffectCards() {
   const scale = useTransform(scrollY, [0, 300], [0.88, 1]);
 
   return (
-    <div className="w-full lg:h-full h-[100%] lg:min-h-screen">
+    <div className="w-full h-[65vh]">
       <div
         style={{
           WebkitMaskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.6), rgba(0,0,0,0))",
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8), rgba(0,0,0,0))",
           maskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.6), rgba(0,0,0,0))",
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8), rgba(0,0,0,0))",
         }}
-        className="flex absolute ml-0 top-[50%] w-[100vw] border overflow-visible lg:h-full pt-20 left-0 mx-auto justify-center items-center h-[50%]"
+        className="flex absolute ml-0 top-[50%] w-[100vw]  overflow-visible lg:h-full pt-20 left-0 mx-auto justify-center items-center h-[50%]"
       >
         <div className="relative overflow-visible md:scale-90 lg:w-[100%] w-[87%] h-full flex justify-center items-center">
           {[0, 1, 2].map((index) => (
