@@ -1,15 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
-import Hero from "@/components/hero";
+import Hero from "@/components/hero-section.";
 
 import Link from "next/link";
 import ToolsSection from "@/components/tool-section";
+import { FeaturesSection } from "@/components/features-section";
+import { DynexiaBentoGrid } from "@/components/workingflow-section";
+import ThreeDMarqueeDemoSecond from "@/components/3dProject-section";
 
 export default function Home() {
   return (
     <>
       <Hero></Hero>
       <ToolsSection></ToolsSection>
+      <FeaturesSection></FeaturesSection>
+      <DynexiaBentoGrid></DynexiaBentoGrid>
+      <ThreeDMarqueeDemoSecond></ThreeDMarqueeDemoSecond>
 
       <section className="py-12 md:py-24  lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
@@ -24,6 +30,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+
           <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
             {[
               "Web Development",

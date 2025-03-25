@@ -21,6 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} overflow-x-hidden mx-auto `}>
+        {/* Background gradient */}
+        <div className="fixed opacity-30 inset-0 -z-10 overflow-hidden">
+          <div className="absolute top-0 left-1/2 w-[900px] h-[900px] bg-cyan-600/30 rounded-full filter blur-[100px]"></div>
+          <div className="absolute bottom-0 right-1/2 w-[900px] h-[900px] bg-purple-600/30 rounded-full filter blur-[100px]"></div>
+        </div>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -70,7 +70,7 @@ export default function ToolsSection() {
   ];
 
   return (
-    <section className="bg-background px-4 py-12 text-foreground sm:py-24 md:py-32">
+    <section className=" px-4 py-12 text-foreground sm:py-24 md:py-32">
       <div className="mx-auto flex max-w-container flex-col items-center gap-8 text-center">
         <div className="flex flex-col items-center gap-6">
           <div className="badge">Last updated: 9 Feb 2025</div>
