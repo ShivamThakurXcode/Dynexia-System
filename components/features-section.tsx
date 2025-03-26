@@ -13,53 +13,61 @@ import {
 export function FeaturesSection() {
   const features = [
     {
-      icon: <ScanFace className="text-brand  size-5 stroke-1" />,
+      icon: <ScanFace className="size-5" />,
       title: "Accessibility first",
       description: "Fully WCAG 2.0 compliant, made with best a11y practices",
+      glowColor: "rgba(59, 130, 246, 0.7)", // Blue
     },
     {
-      icon: <MonitorSmartphone className="text-brand size-5 stroke-1" />,
+      icon: <MonitorSmartphone className="size-5" />,
       title: "Responsive design",
       description: "Looks and works great on any device and screen size",
+      glowColor: "rgba(16, 185, 129, 0.7)", // Emerald
     },
     {
-      icon: <Eclipse className="text-brand size-5 stroke-1" />,
+      icon: <Eclipse className="size-5" />,
       title: "Light and dark mode",
       description:
         "Seamless switching between color schemes, 6 themes included",
+      glowColor: "rgba(245, 158, 11, 0.7)", // Amber
     },
     {
-      icon: <Blocks className="text-brand size-5 stroke-1" />,
+      icon: <Blocks className="size-5" />,
       title: "Easy to customize",
       description: "Flexible options to match your product or brand",
+      glowColor: "rgba(139, 92, 246, 0.7)", // Purple
     },
     {
-      icon: <FastForward className="text-brand size-5 stroke-1" />,
+      icon: <FastForward className="size-5" />,
       title: "Top-level performance",
       description: "Made for lightning-fast load times and smooth interactions",
+      glowColor: "rgba(239, 68, 68, 0.7)", // Red
     },
     {
-      icon: <Rocket className="text-brand size-5 stroke-1" />,
+      icon: <Rocket className="size-5" />,
       title: "Production ready",
       description: "Thoroughly tested and launch-prepared",
+      glowColor: "rgba(236, 72, 153, 0.7)", // Pink
     },
     {
-      icon: <Languages className="text-brand size-5 stroke-1" />,
+      icon: <Languages className="size-5" />,
       title: "Made for localisation",
       description:
         "Easy to implement support for multiple languages and regions",
+      glowColor: "rgba(6, 182, 212, 0.7)", // Cyan
     },
     {
-      icon: <SquarePen className="text-brand size-5 stroke-1" />,
+      icon: <SquarePen className="size-5" />,
       title: "CMS friendly",
       description: "Built to work with any headless content management system",
+      glowColor: "rgba(5, 150, 105, 0.7)", // Green
     },
   ];
 
   return (
-    <section className="py-12 bg-transparent md:py-24 px-4 relative overflow-hidden">
+    <section className="py-12 md:py-24 px-4 relative">
       <div className="max-w-screen mx-auto flex flex-col items-center gap-6 sm:gap-20">
-        <h2 className="max-w-[560px] text-center text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
+        <h2 className="max-w-[660px text-center text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
           Everything you need. Nothing you don't.
         </h2>
 
@@ -70,7 +78,12 @@ export function FeaturesSection() {
               className="text-foreground flex flex-col gap-4 p-4"
             >
               <h3 className="text-sm leading-none font-semibold tracking-tight sm:text-base flex items-center gap-2">
-                <div className="flex items-center self-start">
+                <div
+                  className="relative p-2"
+                  style={{
+                    filter: `drop-shadow(0 0 8px  ${feature.glowColor})`,
+                  }}
+                >
                   {feature.icon}
                 </div>
                 {feature.title}

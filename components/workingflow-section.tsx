@@ -92,7 +92,7 @@ export function DynexiaBentoGrid() {
             <div
               key={i}
               className={cn(
-                "relative rounded-xl p-6 overflow-hidden",
+                "relative rounded-xl  p-6 overflow-hidden",
                 "bg-gradient-to-br border border-white/10",
                 "transition-all duration-300 group",
                 item.className,
@@ -136,7 +136,7 @@ export function DynexiaBentoGrid() {
                 <div className="mb-4 p-3 rounded-lg bg-white/5 w-fit backdrop-blur-sm">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
+                <h3 className="text-xl font-semibold mb-2 dark:text-white text-black">
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground text-sm">

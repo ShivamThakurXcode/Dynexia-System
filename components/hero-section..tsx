@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import HoverEffectCards from "@/components/ui/HoverEffectCards";
+import ScrollEffectCards from "./ui/HoverEffectCards";
 
 export default function Hero() {
   return (
@@ -53,7 +53,7 @@ export default function Hero() {
         </div>
         {/* End Grid */}
       </div>
-      <HoverEffectCards></HoverEffectCards>
+      <ScrollEffectCards></ScrollEffectCards>
 
       {/* End Hero */}
     </>
