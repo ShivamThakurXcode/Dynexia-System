@@ -7,6 +7,7 @@ import ToolsSection from "@/components/tool-section";
 import { FeaturesSection } from "@/components/features-section";
 import { DynexiaBentoGrid } from "@/components/workingflow-section";
 
+
 export default function Home() {
   return (
     <>
@@ -14,6 +15,7 @@ export default function Home() {
       <ToolsSection></ToolsSection>
       <FeaturesSection></FeaturesSection>
       <DynexiaBentoGrid></DynexiaBentoGrid>
+
 
       <section className="py-12 md:py-24  lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
