@@ -4,13 +4,13 @@ import { CalendarDays, Clock, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const BlogCard = ({ 
-  title, 
-  excerpt, 
-  date, 
-  readTime, 
-  image, 
-  slug 
+const BlogCard = ({
+  title,
+  excerpt,
+  date,
+  readTime,
+  image,
+  slug,
 }: {
   title: string;
   excerpt: string;
@@ -34,7 +34,7 @@ const BlogCard = ({
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
-      
+
       {/* Content */}
       <div className="p-6">
         <div className="flex gap-4 mb-3">
@@ -47,11 +47,13 @@ const BlogCard = ({
             {readTime}
           </span>
         </div>
-        
-        <h3 className="text-xl font-semibold dark:text-white text-black mb-2">{title}</h3>
+
+        <h3 className="text-xl font-semibold dark:text-white text-black mb-2">
+          {title}
+        </h3>
         <p className="dark:text-gray-300 text-gray-700 mb-4">{excerpt}</p>
-        
-        <Link 
+
+        <Link
           href={`/blog/${slug}`}
           className="inline-flex items-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600 font-medium"
         >
@@ -63,9 +65,9 @@ const BlogCard = ({
   );
 };
 
-const CategoryPill = ({ 
-  name, 
-  active = false 
+const CategoryPill = ({
+  name,
+  active = false,
 }: {
   name: string;
   active?: boolean;
@@ -75,9 +77,9 @@ const CategoryPill = ({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={`px-4 py-2 rounded-full text-sm font-medium ${
-        active 
-          ? 'bg-gradient-to-r from-cyan-400 to-cyan-600 text-white'
-          : 'dark:bg-gray-900/30 bg-blue-50 dark:text-gray-300 text-gray-700 dark:border-gray-800 border-blue-200'
+        active
+          ? "bg-gradient-to-r from-cyan-400 to-cyan-600 text-white"
+          : "dark:bg-gray-900/30 bg-blue-50 dark:text-gray-300 text-gray-700 dark:border-gray-800 border-blue-200"
       }`}
     >
       {name}
@@ -89,94 +91,114 @@ export default function BlogPage() {
   const blogPosts = [
     {
       title: "The Future of Web Development in 2024",
-      excerpt: "Exploring emerging technologies that will shape the web development landscape in the coming year.",
+      excerpt:
+        "Exploring emerging technologies that will shape the web development landscape in the coming year.",
       date: "May 15, 2024",
       readTime: "5 min read",
       image: "/blog-web-dev.jpg",
       slug: "future-web-dev-2024",
-      category: "Development"
+      category: "Development",
     },
     {
       title: "The Future of Web Development in 2024",
-      excerpt: "Exploring emerging technologies that will shape the web development landscape in the coming year.",
+      excerpt:
+        "Exploring emerging technologies that will shape the web development landscape in the coming year.",
       date: "May 15, 2024",
       readTime: "5 min read",
       image: "/blog-web-dev.jpg",
       slug: "future-web-dev-2024",
-      category: "Development"
+      category: "Development",
     },
     {
       title: "The Future of Web Development in 2024",
-      excerpt: "Exploring emerging technologies that will shape the web development landscape in the coming year.",
+      excerpt:
+        "Exploring emerging technologies that will shape the web development landscape in the coming year.",
       date: "May 15, 2024",
       readTime: "5 min read",
       image: "/blog-web-dev.jpg",
       slug: "future-web-dev-2024",
-      category: "Development"
+      category: "Development",
     },
     {
       title: "The Future of Web Development in 2024",
-      excerpt: "Exploring emerging technologies that will shape the web development landscape in the coming year.",
+      excerpt:
+        "Exploring emerging technologies that will shape the web development landscape in the coming year.",
       date: "May 15, 2024",
       readTime: "5 min read",
       image: "/blog-web-dev.jpg",
       slug: "future-web-dev-2024",
-      category: "Development"
+      category: "Development",
     },
     {
       title: "The Future of Web Development in 2024",
-      excerpt: "Exploring emerging technologies that will shape the web development landscape in the coming year.",
+      excerpt:
+        "Exploring emerging technologies that will shape the web development landscape in the coming year.",
       date: "May 15, 2024",
       readTime: "5 min read",
       image: "/blog-web-dev.jpg",
       slug: "future-web-dev-2024",
-      category: "Development"
+      category: "Development",
     },
     {
       title: "The Future of Web Development in 2024",
-      excerpt: "Exploring emerging technologies that will shape the web development landscape in the coming year.",
+      excerpt:
+        "Exploring emerging technologies that will shape the web development landscape in the coming year.",
       date: "May 15, 2024",
       readTime: "5 min read",
       image: "/blog-web-dev.jpg",
       slug: "future-web-dev-2024",
-      category: "Development"
+      category: "Development",
     },
     {
       title: "The Future of Web Development in 2024",
-      excerpt: "Exploring emerging technologies that will shape the web development landscape in the coming year.",
+      excerpt:
+        "Exploring emerging technologies that will shape the web development landscape in the coming year.",
       date: "May 15, 2024",
       readTime: "5 min read",
       image: "/blog-web-dev.jpg",
       slug: "future-web-dev-2024",
-      category: "Development"
+      category: "Development",
     },
     {
       title: "The Future of Web Development in 2024",
-      excerpt: "Exploring emerging technologies that will shape the web development landscape in the coming year.",
+      excerpt:
+        "Exploring emerging technologies that will shape the web development landscape in the coming year.",
       date: "May 15, 2024",
       readTime: "5 min read",
       image: "/blog-web-dev.jpg",
       slug: "future-web-dev-2024",
-      category: "Development"
+      category: "Development",
     },
     {
       title: "The Future of Web Development in 2024",
-      excerpt: "Exploring emerging technologies that will shape the web development landscape in the coming year.",
+      excerpt:
+        "Exploring emerging technologies that will shape the web development landscape in the coming year.",
       date: "May 15, 2024",
       readTime: "5 min read",
       image: "/blog-web-dev.jpg",
       slug: "future-web-dev-2024",
-      category: "Development"
+      category: "Development",
     },
-   
   ];
 
   const categories = [
     { name: "All", count: blogPosts.length },
-    { name: "Development", count: blogPosts.filter(post => post.category === "Development").length },
-    { name: "Design", count: blogPosts.filter(post => post.category === "Design").length },
-    { name: "Technology", count: blogPosts.filter(post => post.category === "Technology").length },
-    { name: "Cloud", count: blogPosts.filter(post => post.category === "Cloud").length }
+    {
+      name: "Development",
+      count: blogPosts.filter((post) => post.category === "Development").length,
+    },
+    {
+      name: "Design",
+      count: blogPosts.filter((post) => post.category === "Design").length,
+    },
+    {
+      name: "Technology",
+      count: blogPosts.filter((post) => post.category === "Technology").length,
+    },
+    {
+      name: "Cloud",
+      count: blogPosts.filter((post) => post.category === "Cloud").length,
+    },
   ];
 
   return (
@@ -206,11 +228,13 @@ export default function BlogPage() {
             Innovating Since 2018
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight dark:text-white text-black mb-4">
-          Dynexia<span className="dark:text-cyan-400 text-cyan-600">  Blog</span>
+            Dynexia
+            <span className="dark:text-cyan-400 text-cyan-600"> Blog</span>
           </h1>
-        
+
           <p className="text-lg dark:text-gray-300 text-gray-700 max-w-2xl mx-auto">
-            Cutting-edge insights on web development, design, and emerging technologies from our team of experts.
+            Cutting-edge insights on web development, design, and emerging
+            technologies from our team of experts.
           </p>
         </motion.div>
 
@@ -223,9 +247,9 @@ export default function BlogPage() {
           className="flex flex-wrap gap-4 justify-center mb-16"
         >
           {categories.map((category, index) => (
-            <CategoryPill 
-              key={index} 
-              name={`${category.name} (${category.count})`} 
+            <CategoryPill
+              key={index}
+              name={`${category.name} (${category.count})`}
               active={index === 0}
             />
           ))}
@@ -254,7 +278,7 @@ export default function BlogPage() {
                   className="object-cover"
                 />
               </div>
-              
+
               <div className="p-8 lg:p-12 dark:bg-gradient-to-b dark:from-gray-900/50 dark:to-gray-800/20 bg-gradient-to-b from-gray-50/80 to-white">
                 <div className="flex gap-4 mb-4">
                   <span className="flex items-center text-sm text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600">
@@ -266,15 +290,16 @@ export default function BlogPage() {
                     10 min read
                   </span>
                 </div>
-                
+
                 <h2 className="text-3xl font-bold dark:text-white text-black mb-4">
                   The Evolution of Jamstack Architecture
                 </h2>
                 <p className="dark:text-gray-300 text-gray-700 mb-6">
-                  How modern web architecture is shifting towards edge computing, serverless functions, 
-                  and headless CMS solutions for better performance and scalability.
+                  How modern web architecture is shifting towards edge
+                  computing, serverless functions, and headless CMS solutions
+                  for better performance and scalability.
                 </p>
-                
+
                 <Link
                   href="/blog/jamstack-evolution"
                   className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white rounded-lg font-medium shadow-lg shadow-cyan-500/20"
@@ -316,13 +341,14 @@ export default function BlogPage() {
 
         {/* Newsletter CTA */}
         <div className="mt-24 dark:bg-gray-900/30 bg-blue-50 rounded-2xl p-8 md:p-12 border dark:border-gray-800 border-blue-200 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold dark:text-white text-black mb-8 text-center">
-        Stay <span className="dark:text-cyan-400 text-cyan-600"> Updated</span>
+          <h2 className="text-3xl sm:text-4xl font-bold dark:text-white text-black mb-8 text-center">
+            Stay{" "}
+            <span className="dark:text-cyan-400 text-cyan-600"> Updated</span>
           </h2>
-          
-        
+
           <p className="dark:text-gray-300 text-gray-700 max-w-2xl mx-auto mb-8">
-            Subscribe to our newsletter for the latest articles and industry updates.
+            Subscribe to our newsletter for the latest articles and industry
+            updates.
           </p>
           <motion.button
             whileHover={{ scale: 1.02 }}
