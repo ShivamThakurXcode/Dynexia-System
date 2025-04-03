@@ -65,12 +65,8 @@ export function FeaturesSection() {
   ];
 
   return (
-    <section className="py-12 md:py-24 px-4 relative">
+    <section className="py-8 md:py-16 px-4 relative">
       <div className="max-w-screen mx-auto flex flex-col items-center gap-6 sm:gap-20">
-        <h2 className="max-w-[660px text-center text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
-          Everything you need. Nothing you don't.
-        </h2>
-
         <div className="grid auto-rows-fr grid-cols-2 gap-0 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
           {features.map((feature, index) => (
             <div

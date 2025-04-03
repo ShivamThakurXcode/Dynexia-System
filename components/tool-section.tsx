@@ -79,7 +79,7 @@ export default function ToolsSection() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="px-4 py-12 text-foreground sm:py-24 md:py-32 relative"
+      className="px-4  text-foreground sm:py-24 mt-9 relative"
     >
       <div className="mx-auto flex max-w-container flex-col items-center gap-8 text-center">
         <div className="flex flex-col items-center gap-6">
