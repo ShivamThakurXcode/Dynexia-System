@@ -12,9 +12,9 @@ export default function Footer() {
   const [isOpen, setIsOpen] = useState(false);
   const { resolvedTheme } = useTheme();
   return (
-    <footer className="relative overflow-hidden border-t shadow-lg dark:border-gray-800">
-       {/* Gradient background elements */}
-       <div className="absolute inset-0 -z-10 overflow-hidden">
+    <footer className="relative max-w-screen overflow-hidden border-t shadow-lg dark:border-gray-800">
+      {/* Gradient background elements */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-500/10 rounded-full filter blur-3xl"></div>
         <div className="absolute -top-20 -right-20 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-0 right-1/2 w-full h-32 bg-gradient-to-t dark:from-transparent from-white to-transparent"></div>
@@ -41,7 +41,6 @@ export default function Footer() {
               fill="url(#footerGradient)"
               clipPath="url(#footerClipPath)"
             />
-         
           </svg>
         </div>
       </div>
@@ -56,33 +55,33 @@ export default function Footer() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-                 {/* Logo */}
-        <Link href="/" className="flex w-full h-10  items-center ">
-
-          <Image
-            className="p-1"
-            src="/Dynexia-Pheonix.jpeg"
-            alt="Dynexia Logo"
-            width={48}
-            height={48}
-            priority
-          />
-          <Image
-            className="h-[80%] border-l border-cyan-500/70 pl-1"
-            src={
-              resolvedTheme === "light"
-                ? "/logo-txt-light.jpeg"
-                : "/logo-txt-dark.jpeg"
-            }
-            alt="Dynexia Logo Text"
-           width={150}
-            height={48}
-            priority
-          />
-        </Link>
+            {/* Logo */}
+            <Link href="/" className="flex w-full h-10  items-center ">
+              <Image
+                className="p-1"
+                src="/Dynexia-Pheonix.jpeg"
+                alt="Dynexia Logo"
+                width={48}
+                height={48}
+                priority
+              />
+              <Image
+                className="h-[80%] border-l border-cyan-500/70 pl-1"
+                src={
+                  resolvedTheme === "light"
+                    ? "/logo-txt-light.jpeg"
+                    : "/logo-txt-dark.jpeg"
+                }
+                alt="Dynexia Logo Text"
+                width={150}
+                height={48}
+                priority
+              />
+            </Link>
 
             <p className="text-muted-foreground leading-relaxed">
-              Building the future of digital experiences with cutting-edge technology and innovative solutions.
+              Building the future of digital experiences with cutting-edge
+              technology and innovative solutions.
             </p>
             <div className="flex items-center space-x-2 text-muted-foreground">
               <Mail className="h-5 w-5" />
@@ -107,7 +106,7 @@ export default function Footer() {
                 ["Portfolio", "/portfolio"],
                 ["Contact", "/contact"],
               ].map(([title, url], index) => (
-                <motion.li 
+                <motion.li
                   key={title}
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
@@ -154,11 +153,12 @@ export default function Footer() {
                 </motion.a>
               ))}
             </div>
-            
+
             <div className="pt-4">
               <h4 className="text-sm font-medium mb-3">Join our community</h4>
               <p className="text-sm text-muted-foreground">
-                Be part of our growing network of innovators and tech enthusiasts.
+                Be part of our growing network of innovators and tech
+                enthusiasts.
               </p>
             </div>
           </motion.div>
