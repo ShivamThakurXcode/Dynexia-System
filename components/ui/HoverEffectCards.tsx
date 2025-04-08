@@ -1,93 +1,74 @@
 "use client";
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const TiltedCard = ({
   imageSrc,
   index,
+  rotate,
+  skewY,
+  scale,
+  left,
 }: {
   imageSrc: string;
   index: number;
+  rotate: any;
+  skewY: any;
+  scale: any;
+  left: any;
 }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!cardRef.current) return;
-
-    const card = cardRef.current;
-
-    // Set initial styles
-    gsap.set(card, {
-      rotation: -24,
-      skewY: 12,
-      scale: 0.9,
-    });
-
-    // Animation for each card
-    gsap.to(card, {
-      rotation: -24 * 0.2,
-      skewY: 12 * 0.2,
-      scale: 1,
-      x: index * 60, // Adjust horizontal movement
-      scrollTrigger: {
-        trigger: ".cards-container",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, [index]);
-
   return (
-    <div
-      ref={cardRef}
-      className={`absolute w-full ${
-        index === 0 ? "left-0" : index === 1 ? "left-1/4" : "left-1/2"
-      }`}
+    <motion.div
+      style={{ rotate, skewY, scale, left }}
+      transition={{ type: "spring", stiffness: 60, damping: 12 }}
+      className="absolute border-5 rounded-md w-[80%] h-[8rem] sm:h-[12rem] md:h-[16rem] lg:h-[500px] cursor-pointer"
     >
-      <div
-        ref={glowRef}
-        className="absolute inset-0 -z-10 blur-2xl opacity-50 transition-all duration-300"
-        style={{
-          background:
-            "radial-gradient(circle at center, rgba(99,102,241,0.7) 0%, transparent 70%)",
-        }}
-      />
-      <div className="border-white/50 border-3 top-32 flex relative z-10 h-full w-full overflow-hidden rounded-2xl right-20 pb-20 pt-20 mb-20 dark:border-white/10 p-2 shadow-mockup">
-        <div className="flex relative z-10 overflow-hidden shadow-2xl border-8 border-white/70 dark:border-white/5 rounded-md h-full w-full">
-          <img
-            src={imageSrc}
-            alt="Card"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
+      <div className="absolute scale-95 -left-10 -top-10 border border-black/80 rounded-xl shadow-lg">
+        <img
+          src={imageSrc}
+          alt="Card"
+          className="w-full rounded-xl border-8 border-white/30 h-full object-cover"
+        />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default function ScrollEffectCards() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+
+  // Transform scrollY values smoothly
+  const rotate = useTransform(scrollY, [0, 300], [-24, -5]);
+  const skewY = useTransform(scrollY, [0, 300], [14, 0]);
+  const scale = useTransform(scrollY, [0, 300], [0.88, 1]);
 
   return (
-    <div
-      ref={containerRef}
-      className="container mx-0 px-0 left-0 overflow-visible    h-[150vh]"
-    >
-      <div className="cards-container absolute    left-0  w-full scale-90 h-full flex items-center justify-center">
-        <TiltedCard imageSrc="app-dark.webp" index={0} />
-        <TiltedCard imageSrc="app-dark.webp" index={1} />
-        <TiltedCard imageSrc="app-dark.webp" index={2} />
+    <div className="w-full h-[65vh]">
+      <div
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8), rgba(0,0,0,0))",
+          maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8), rgba(0,0,0,0))",
+        }}
+        className="flex absolute ml-0 top-[50%] w-[100vw]  overflow-visible lg:h-full pt-20 left-0 mx-auto justify-center items-center h-[50%]"
+      >
+        <div className="relative overflow-visible md:scale-90 lg:w-[100%] w-[87%] h-full flex justify-center items-center">
+          {[0, 1, 2].map((index) => (
+            <TiltedCard
+              key={index}
+              imageSrc="app-dark.webp"
+              index={index}
+              rotate={rotate}
+              skewY={skewY}
+              scale={scale}
+              left={useTransform(
+                scrollY,
+                [0, 300],
+                [`${index * 10}%`, `${index * 15}%`]
+              )}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

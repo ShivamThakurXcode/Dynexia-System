@@ -91,7 +91,6 @@ const ReviewCard = ({
 export function MarqueeDemo() {
   return (
     <>
-      {" "}
       <section className="py-8 md:py-16 px-4 relative">
         <div className="text-center mt-5 mb-8">
           <h2 className=" text-center text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
