@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <>
       {/* Hero */}
-      <div className="container   py-24 lg:py-32">
+      <div className="container pb-10     py-24 pt-32 ">
         <img
           alt="shape"
           loading="lazy"
@@ -52,9 +52,8 @@ export default function Hero() {
           {/* End Col */}
         </div>
         {/* End Grid */}
+        <ScrollEffectCards></ScrollEffectCards>
       </div>
-      <ScrollEffectCards></ScrollEffectCards>
-
       {/* End Hero */}
     </>
   );

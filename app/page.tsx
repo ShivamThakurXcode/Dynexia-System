@@ -8,11 +8,13 @@ import { FeaturesSection } from "@/components/features-section";
 import { DynexiaBentoGrid } from "@/components/workingflow-section";
 import { MarqueeDemoVertical } from "@/components/webPreview-section";
 import { MarqueeDemo } from "@/components/testimonial-section";
+import ScrollEffectCards from "@/components/ui/HoverEffectCards";
 
 export default function Home() {
   return (
     <>
       <Hero></Hero>
+
       <ToolsSection></ToolsSection>
       <FeaturesSection></FeaturesSection>
       <DynexiaBentoGrid></DynexiaBentoGrid>
