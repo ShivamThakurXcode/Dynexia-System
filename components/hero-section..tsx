@@ -1,106 +1,8 @@
-"use client";
-import { motion, useScroll, useTransform, cubicBezier } from "framer-motion";
 import { Button } from "@/components/ui/button";
-
-const TiltedCard = ({
-  imageSrc,
-  index,
-  rotate,
-  skewY,
-  scale,
-  left,
-}: {
-  imageSrc: string;
-  index: number;
-  rotate: any;
-  skewY: any;
-  scale: any;
-  left: any;
-}) => {
-  return (
-    <motion.div
-      style={{
-        rotate,
-        skewY,
-        scale,
-        left,
-        zIndex: 1000 - index,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 50,
-        damping: 15,
-        mass: 0.5,
-      }}
-      className="absolute   top-0 rounded-md w-full h-[17rem] sm:h-[12rem] md:h-[16rem] lg:h-[40rem] cursor-pointer will-change-transform"
-    >
-      <motion.div
-        className="absolute  top-0  border rounded-xl shadow-lg overflow-visible"
-        style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-        }}
-        whileHover={{ scale: 1.0 }}
-        transition={{ type: "spring", stiffness: 400 }}
-      >
-        <img
-          src={imageSrc}
-          alt="Card"
-          className="w-full h-full object-cover rounded-xl border-8 border-white/30"
-        />
-      </motion.div>
-    </motion.div>
-  );
-};
-
-const ScrollEffectCards = () => {
-  const { scrollY } = useScroll();
-
-  const easing = cubicBezier(0.34, 1, 0.64, 1);
-  const easing2 = cubicBezier(0.16, 1, 0.3, 1);
-
-  const rotate = useTransform(scrollY, [0, 300], [-29, -5], { ease: easing });
-  const skewY = useTransform(scrollY, [0, 300], [16, 0], { ease: easing2 });
-  const scale = useTransform(scrollY, [0, 300], [0.88, 1], { ease: easing });
-
-  return (
-    <div className="relative right-20 mb-0 md:bottom-36 max-w-[screen] mx-auto left-0    h-[30rem] sm:h-[47rem] z-10 overflow-visible">
-      <div
-        style={{
-          WebkitMaskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8), rgba(0,0,0,0))",
-          maskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8), rgba(0,0,0,0))",
-        }}
-        className="relative border overflow-visible w-full mx-auto h-full pt-20 md:pt-40 flex justify-center items-center"
-      >
-        <div className="relative w-[95%] sm:w-[87%] md:w-[90%] lg:w-[80%] h-full">
-          {[0, 1, 2].map((index) => (
-            <TiltedCard
-              key={index}
-              imageSrc="app-dark.webp"
-              index={index}
-              rotate={rotate}
-              skewY={skewY}
-              scale={scale}
-              left={useTransform(
-                scrollY,
-                [0, 300],
-                [`${index * 10}%`, `${index * 15}%`],
-                { ease: easing }
-              )}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+import ScrollEffectCards from "./ui/HoverEffectCards";
 
 export default function Hero() {
   return (
-<<<<<<< HEAD
     <>
       {/* Hero */}
       <div className="container pb-10     py-24 pt-32 ">
@@ -114,34 +16,19 @@ export default function Hero() {
           src="hero-shape-1.svg"
           style={{ color: "transparent" }}
         />
-=======
-    <section className="max-w-screen px-4">
-      {/* Background shapes */}
-      <img
-        alt="shape"
-        loading="lazy"
-        width="411"
-        height="276"
-        decoding="async"
-        className="absolute opacity-30 left-0 top-0 -z-10"
-        src="hero-shape-1.svg"
-        style={{ color: "transparent" }}
-      />
-      <img
-        alt="shape"
-        loading="lazy"
-        width="820"
-        height="692"
-        decoding="async"
-        className="absolute opacity-35 right-0 top-0 -z-10"
-        src="hero-shape-2.svg"
-        style={{ color: "transparent" }}
-      />
->>>>>>> 5c3c0d405af25f0044f4209bfe3b785523c46523
 
-      {/* Content container */}
-      <div className="container pl-0  mx-auto min-w-full w-screen overflow-visible relative pt-20 md:pt-32">
-        {/* Grid layout */}
+        <img
+          alt="shape"
+          loading="lazy"
+          width="820"
+          height="692"
+          decoding="async"
+          className="absolute opacity-35 right-0 top-0 -z-10"
+          src="hero-shape-2.svg"
+          style={{ color: "transparent" }}
+        />
+
+        {/* Grid */}
         <div className="grid  md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
           <div>
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
@@ -164,18 +51,26 @@ export default function Hero() {
 
           {/* End Col */}
         </div>
-<<<<<<< HEAD
         {/* End Grid */}
         <ScrollEffectCards></ScrollEffectCards>
       </div>
       {/* End Hero */}
     </>
-=======
-
-        {/* Animated cards - now positioned below the text */}
-        <ScrollEffectCards />
-      </div>
-    </section>
->>>>>>> 5c3c0d405af25f0044f4209bfe3b785523c46523
   );
 }
+
+const star = (
+  <svg
+    className="h-4 w-4"
+    width={51}
+    height={51}
+    viewBox="0 0 51 51"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+      fill="currentColor"
+    />
+  </svg>
+);
