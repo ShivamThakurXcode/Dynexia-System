@@ -3,34 +3,39 @@ import { Marquee } from "./magicui/marquee";
 
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "This product completely transformed my workflow. The attention to detail is incredible and it's so intuitive to use.",
+    name: "E-commerce Platform",
+    username: "Online Store",
     img: "https://avatar.vercel.sh/jack",
+    bgImage:
+      "url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')",
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I was skeptical at first, but after using it for a week, I can't imagine going back to my old tools. Simply outstanding!",
+    name: "Healthcare Portal",
+    username: "Medical System",
     img: "https://avatar.vercel.sh/jill",
+    bgImage:
+      "url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "The performance and design are next level. My productivity has increased by at least 40% since I started using this.",
+    name: "Educational Platform",
+    username: "Learning Management",
     img: "https://avatar.vercel.sh/john",
+    bgImage:
+      "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')",
   },
   {
-    name: "Sarah",
-    username: "@sarah",
-    body: "The customer support is as impressive as the product itself. Quick responses and actually helpful solutions.",
+    name: "Financial Dashboard",
+    username: "FinTech Solution",
     img: "https://avatar.vercel.sh/sarah",
+    bgImage:
+      "url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')",
   },
   {
-    name: "Mike",
-    username: "@mike",
-    body: "Worth every penny. The ROI was almost immediate. My team adopted it instantly with minimal training needed.",
+    name: "IoT Management System",
+    username: "Smart Solutions",
     img: "https://avatar.vercel.sh/mike",
+    bgImage:
+      "url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')",
   },
 ];
 
@@ -41,17 +46,17 @@ const ReviewCard = ({
   img,
   name,
   username,
-  body,
+  bgImage,
 }: {
   img: string;
   name: string;
   username: string;
-  body: string;
+  bgImage: string;
 }) => {
   return (
     <figure
       className={cn(
-        "relative h-[28rem] w-90 cursor-pointer overflow-hidden rounded-2xl border p-6",
+        "relative h-[28rem] w-[100%] cursor-pointer overflow-hidden rounded-2xl border p-6",
         // light styles
         "border-gray-500/[.25] bg-black/[.03] hover:bg-white/[.08] backdrop-blur-lg",
         // dark styles
@@ -59,8 +64,14 @@ const ReviewCard = ({
         // transition
         "transition-all duration-300 ease-in-out hover:scale-[1.02]"
       )}
+      style={{
+        backgroundImage: bgImage,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundBlendMode: "overlay",
+      }}
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-purple-500/10 opacity-40" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-purple-500/10 opacity-80" />
       <div className="flex flex-row items-center gap-3">
         <img
           className="rounded-full border-2 border-white/20"
@@ -70,21 +81,20 @@ const ReviewCard = ({
           src={img}
         />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white text-black">
+          <figcaption className="text-sm font-medium dark:text-white text-white drop-shadow-md">
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          <p className="text-xs font-medium dark:text-white/70 text-white/70 drop-shadow-md">
+            {username}
+          </p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm text-black dark:text-white/80">
-        {body}
-      </blockquote>
       <div className="absolute bottom-4 left-0 right-0 flex justify-center">
         <div className="flex space-x-1">
           {[...Array(5)].map((_, i) => (
             <svg
               key={i}
-              className="h-4 w-4 text-yellow-400"
+              className="h-4 w-4 text-yellow-400 drop-shadow-md"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -102,12 +112,12 @@ export function MarqueeDemoVertical() {
     <>
       <div className="text-center mt-5 mb-8">
         <h2 className=" text-center text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
-          Latest Projects
+          Our Portfolio
         </h2>
 
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Our comprehensive IT solutions process designed to transform your
-          business infrastructure
+          Explore our diverse range of successful projects and digital solutions
+          that have helped businesses thrive
         </p>
       </div>
 

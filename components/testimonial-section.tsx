@@ -3,40 +3,40 @@ import { Marquee } from "./magicui/marquee";
 
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
+    name: "Rajesh Sharma",
+    username: "@rajeshdigital",
+    body: "Dynexia transformed our e-commerce platform with their exceptional web development skills. Our sales increased by 150% after their redesign!",
+    img: "https://avatar.vercel.sh/rajesh",
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
+    name: "Priya Patel",
+    username: "@priyatech",
+    body: "As a startup founder, I was amazed by Dynexia's affordable yet professional web solutions. They delivered beyond our expectations.",
+    img: "https://avatar.vercel.sh/priya",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
+    name: "Amit Singh",
+    username: "@amitenterprises",
+    body: "Best web development agency in India! Our corporate website now stands out from competitors thanks to Dynexia's innovative approach.",
+    img: "https://avatar.vercel.sh/amit",
   },
   {
-    name: "Jane",
-    username: "@jane",
-    body: "This product has completely transformed my daily routine. Absolutely brilliant!",
-    img: "https://avatar.vercel.sh/jane",
+    name: "Neha Gupta",
+    username: "@nehacreative",
+    body: "Dynexia's team understood our vision perfectly. The website they built has significantly improved our customer engagement.",
+    img: "https://avatar.vercel.sh/neha",
   },
   {
-    name: "Jenny",
-    username: "@jenny",
-    body: "The attention to detail is incredible. Worth every penny.",
-    img: "https://avatar.vercel.sh/jenny",
+    name: "Vikram Joshi",
+    username: "@vikrambusiness",
+    body: "Working with Dynexia was a game-changer for our online presence. Their technical expertise is unmatched in the Indian market.",
+    img: "https://avatar.vercel.sh/vikram",
   },
   {
-    name: "James",
-    username: "@james",
-    body: "My productivity has doubled since I started using this. Game changer!",
-    img: "https://avatar.vercel.sh/james",
+    name: "Ananya Reddy",
+    username: "@ananyastartup",
+    body: "From concept to launch, Dynexia provided complete web solutions with 24/7 support. Truly a reliable partner for Indian businesses!",
+    img: "https://avatar.vercel.sh/ananya",
   },
 ];
 
@@ -94,12 +94,12 @@ export function MarqueeDemo() {
       <section className="py-8 md:py-16 px-4 relative">
         <div className="text-center mt-5 mb-8">
           <h2 className=" text-center text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
-            Testimonials
+            What Our Clients Say
           </h2>
 
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Our comprehensive IT solutions process designed to transform your
-            business infrastructure
+            Trusted by businesses across India for delivering exceptional web
+            development solutions
           </p>
         </div>
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-8">

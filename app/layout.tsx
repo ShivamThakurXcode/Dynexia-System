@@ -20,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} overflow-x-hidden mx-auto `}>
+      <body
+        className={`${inter.className} overflow-x-hidden md:overflow-x-hidden mx-auto `}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -28,13 +30,13 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {/* Background gradient */}
-          <div className="fixed opacity-30 inset-0 -z-10 overflow-hidden">
+          <div className="fixed w-screen opacity-30 inset-0 -z-10 overflow-hidden">
             <div className="absolute top-0 left-1/2 w-[900px] h-[900px] bg-cyan-600/30 rounded-full filter blur-[100px]"></div>
             <div className="absolute bottom-0 right-1/2 w-[900px] h-[900px] bg-purple-600/30 rounded-full filter blur-[100px]"></div>
           </div>
           <Navbar />
           <div className="flex w-full max-w-screen-xl min-w-screen min-h-screen  sm:mx-auto mx-auto flex-col">
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 ">{children}</main>
           </div>
           <Footer />
         </ThemeProvider>
