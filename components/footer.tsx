@@ -5,7 +5,6 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useTheme } from "next-themes";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Footer() {
@@ -44,18 +43,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container  px-4 py-10 md:px-6 lg:py-10 relative z-10">
+      <div className="container px-4 py-10 md:px-6 lg:py-10 relative z-10">
         <div className="grid gap-12 lg:grid-cols-4">
           {/* Company Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             {/* Logo */}
-            <Link href="/" className="flex w-full h-10  items-center ">
+            <Link href="/" className="flex w-full h-10 items-center">
               <Image
                 className="p-1"
                 src="/Dynexia-Pheonix.jpeg"
@@ -86,16 +79,10 @@ export default function Footer() {
               <Mail className="h-5 w-5" />
               <span>contact@dynexia.com</span>
             </div>
-          </motion.div>
+          </div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             <h3 className="text-lg font-bold">Quick Links</h3>
             <ul className="space-y-3">
               {[
@@ -104,12 +91,8 @@ export default function Footer() {
                 ["Services", "/services"],
                 ["Portfolio", "/portfolio"],
                 ["Contact", "/contact"],
-              ].map(([title, url], index) => (
-                <motion.li
-                  key={title}
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+              ].map(([title, url]) => (
+                <li key={title}>
                   <Link
                     href={url}
                     className="text-muted-foreground hover:text-primary transition-colors flex items-center"
@@ -117,19 +100,13 @@ export default function Footer() {
                     <span className="w-2 h-2 rounded-full bg-blue-500 mr-2"></span>
                     {title}
                   </Link>
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             <h3 className="text-lg font-bold">Connect With Us</h3>
             <div className="flex flex-wrap gap-3">
               {[
@@ -138,18 +115,16 @@ export default function Footer() {
                 { icon: Instagram, name: "Instagram", url: "#" },
                 { icon: Linkedin, name: "LinkedIn", url: "#" },
               ].map((social) => (
-                <motion.a
+                <a
                   key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ y: -3 }}
-                  whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center justify-center rounded-full p-3 bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900 shadow-sm hover:shadow-md transition-all"
                 >
                   <social.icon className="h-5 w-5 text-muted-foreground hover:text-primary" />
                   <span className="sr-only">{social.name}</span>
-                </motion.a>
+                </a>
               ))}
             </div>
 
@@ -160,16 +135,10 @@ export default function Footer() {
                 enthusiasts.
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Newsletter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             <h3 className="text-lg font-bold">Stay Updated</h3>
             <p className="text-muted-foreground">
               Subscribe to our newsletter for the latest updates and insights.
@@ -182,37 +151,29 @@ export default function Footer() {
                   type="email"
                   required
                 />
-                <motion.button
+                <button
                   type="submit"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
                   className="absolute right-1 top-1 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium shadow-sm hover:shadow-md transition-all"
                 >
                   Subscribe
-                </motion.button>
+                </button>
               </div>
             </form>
             <p className="text-xs text-muted-foreground">
               We respect your privacy. Unsubscribe at any time.
             </p>
-          </motion.div>
+          </div>
         </div>
 
         {/* Copyright */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16 pt-8 border-t dark:border-gray-800 text-center"
-        >
+        <div className="mt-16 pt-8 border-t dark:border-gray-800 text-center">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Dynexia System. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
             Crafted with passion by Shivam Thakur
           </p>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

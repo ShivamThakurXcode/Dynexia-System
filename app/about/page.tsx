@@ -1,6 +1,7 @@
 "use client";
+import { CTASection } from "@/components/cta-section";
 import { motion } from "framer-motion";
-import InteractiveBrain from '@/components/3d-brain';
+
 import {
   Users,
   Rocket,
@@ -42,7 +43,7 @@ export default function AboutPage() {
   return (
     <div className="relative overflow-visible bg-transparent">
       {/* Background elements */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute overflow-hidden w-[100vw] inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] dark:bg-blue-500/10 bg-blue-200/20 rounded-full filter blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] dark:bg-purple-500/10 bg-purple-200/20 rounded-full filter blur-3xl" />
       </div>
@@ -67,7 +68,8 @@ export default function AboutPage() {
               Innovating Since 2018
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight dark:text-white text-black">
-              Shaping the <span className="dark:text-white text-black">Digital Future</span>
+              Shaping the{" "}
+              <span className="dark:text-white text-black">Digital Future</span>
             </h1>
             <p className="text-lg dark:text-gray-300 text-gray-700 max-w-2xl">
               At Dynexia Solutions, we bridge the gap between today's challenges
@@ -102,7 +104,7 @@ export default function AboutPage() {
               className="absolute -inset-4 rounded-3xl dark:bg-gradient-to-br dark:from-blue-500/20 dark:to-purple-500/10 
               bg-gradient-to-br from-blue-100/40 to-purple-100/20 blur-xl"
             />
-             
+
             <Image
               alt="Dynexia Team"
               className="relative rounded-2xl dark:border-gray-800/50 border-gray-200 w-full h-auto aspect-square object-cover"
@@ -118,7 +120,10 @@ export default function AboutPage() {
         <div className="space-y-12 mb-24">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold dark:text-white text-black mb-4">
-              Our <span className="dark:text-white text-black">Operating System</span>
+              Our{" "}
+              <span className="dark:text-white text-black">
+                Operating System
+              </span>
             </h2>
             <p className="dark:text-gray-300 text-gray-700 text-lg">
               The principles that drive every solution we create
@@ -310,25 +315,7 @@ export default function AboutPage() {
             </motion.div>
           ))}
         </div>
-
-        {/* CTA */}
-        <div className="dark:bg-gray-900/30 bg-blue-50 rounded-2xl p-8 md:p-12 border dark:border-gray-800 border-blue-200 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold dark:text-white text-black mb-4">
-            Ready to Build the Future Together?
-          </h2>
-          <p className="dark:text-gray-300 text-gray-700 max-w-2xl mx-auto mb-8">
-            Whether you're looking to modernize legacy systems or create
-            something entirely new, our team is ready to bring your vision to
-            life with cutting-edge technology.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg font-medium shadow-lg"
-          >
-            Start Your Project
-          </motion.button>
-        </div>
+        <CTASection></CTASection>
       </div>
     </div>
   );

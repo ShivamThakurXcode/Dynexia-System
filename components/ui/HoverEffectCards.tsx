@@ -42,9 +42,8 @@ const TiltedCard = ({
       scrollTrigger: {
         trigger: ".cards-container",
         start: "top bottom",
-        end: "bottom top",
+        end: "bottom center",
         scrub: 0.5,
-        ease: "power2.inOut",
       },
     });
 
