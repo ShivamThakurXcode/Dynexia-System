@@ -72,12 +72,14 @@ export default function Navbar() {
 
         {/* Right side buttons */}
         <div className="flex items-center gap-4">
-          <Button
-            variant="outline"
-            className="hidden h-8 border  md:flex  border-cyan-900  rounded-xl bg-white hover:text-white text-gray-800"
-          >
-            Book
-          </Button>
+          <Link href="/book">
+            <Button
+              variant="outline"
+              className="hidden h-8 border md:flex border-cyan-900 rounded-xl bg-white hover:text-white text-gray-800"
+            >
+              Book
+            </Button>
+          </Link>
 
           <ModeToggle />
 

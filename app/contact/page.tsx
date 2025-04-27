@@ -1,10 +1,22 @@
 "use client";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Github } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Linkedin,
+  Twitter,
+  Github,
+} from "lucide-react";
 import { useForm } from "react-hook-form";
 
 export default function ContactPage() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -15,7 +27,7 @@ export default function ContactPage() {
     <div className="relative overflow-visible bg-transparent">
       {/* Background elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-cyan-500/10 to-blue-600/10 rounded-full filter blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full filter blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] dark:bg-purple-500/10 bg-purple-200/20 rounded-full filter blur-3xl" />
       </div>
 
@@ -25,27 +37,23 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-24 text-center"
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-sm mb-6 backdrop-blur-sm"
-          >
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full dark:bg-blue-900/30 bg-blue-100 dark:border-blue-500/30 border-blue-200 dark:text-white text-black text-sm mb-4">
             <span className="relative flex h-2 w-2 mr-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-600 dark:bg-cyan-400"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full dark:bg-blue-400 bg-blue-500 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 dark:bg-blue-500 bg-blue-600"></span>
             </span>
-            Get In Touch
-          </motion.div>
-          
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
-              Contact Us
-            </span>
+            Contact Us
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight dark:text-white text-black mb-4">
+            Dynexia
+            <span className="dark:text-white text-black"> Contact</span>
           </h1>
-          
-          <p className="text-xl dark:text-gray-400 text-gray-600 max-w-3xl mx-auto">
-            Have a project in mind or want to discuss how we can help your business? Reach out to our team.
+
+          <p className="text-lg dark:text-gray-300 text-gray-700 max-w-2xl mx-auto">
+            Have a project in mind or want to discuss how we can help your
+            business? Reach out to our team.
           </p>
         </motion.div>
 
@@ -61,83 +69,133 @@ export default function ContactPage() {
             <h2 className="text-2xl font-bold dark:text-white text-gray-900 mb-6">
               Send us a message
             </h2>
-            
+
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1"
+                >
                   Full Name
                 </label>
                 <input
                   id="name"
                   type="text"
                   {...register("name", { required: "Name is required" })}
-                  className="w-full px-4 py-3 rounded-lg dark:bg-gray-800/30 bg-white dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  placeholder="John Doe"
+                  className="w-full px-4 py-3 rounded-lg dark:bg-gray-800/30 bg-white dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Enter your full name here"
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-500">{errors.name.message as string}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.name.message as string}
+                  </p>
                 )}
               </div>
-              
+
               <div>
-                <label htmlFor="email" className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1"
+                >
                   Email Address
                 </label>
                 <input
                   id="email"
                   type="email"
-                  {...register("email", { 
+                  {...register("email", {
                     required: "Email is required",
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "Invalid email address"
-                    }
+                      message: "Invalid email address",
+                    },
                   })}
-                  className="w-full px-4 py-3 rounded-lg dark:bg-gray-800/30 bg-white dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  placeholder="john@example.com"
+                  className="w-full px-4 py-3 rounded-lg dark:bg-gray-800/30 bg-white dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Enter your email address here"
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-500">{errors.email.message as string}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.email.message as string}
+                  </p>
                 )}
               </div>
-              
+
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1"
+                >
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  type="tel"
+                  {...register("phone", {
+                    required: "Phone number is required",
+                    pattern: {
+                      value: /^[6-9]\d{9}$/,
+                      message: "Please enter valid Indian phone number",
+                    },
+                  })}
+                  className="w-full px-4 py-3 rounded-lg dark:bg-gray-800/30 bg-white dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Enter your 10-digit phone number"
+                />
+                {errors.phone && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.phone.message as string}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1"
+                >
                   Subject
                 </label>
                 <input
                   id="subject"
                   type="text"
                   {...register("subject", { required: "Subject is required" })}
-                  className="w-full px-4 py-3 rounded-lg dark:bg-gray-800/30 bg-white dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  placeholder="How can we help?"
+                  className="w-full px-4 py-3 rounded-lg dark:bg-gray-800/30 bg-white dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Enter the subject of your message"
                 />
                 {errors.subject && (
-                  <p className="mt-1 text-sm text-red-500">{errors.subject.message as string}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.subject.message as string}
+                  </p>
                 )}
               </div>
-              
+
               <div>
-                <label htmlFor="message" className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1"
+                >
                   Message
                 </label>
                 <textarea
                   id="message"
                   rows={5}
                   {...register("message", { required: "Message is required" })}
-                  className="w-full px-4 py-3 rounded-lg dark:bg-gray-800/30 bg-white dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  placeholder="Tell us about your project..."
+                  className="w-full px-4 py-3 rounded-lg dark:bg-gray-800/30 bg-white dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Type your message here..."
                 ></textarea>
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-500">{errors.message.message as string}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.message.message as string}
+                  </p>
                 )}
               </div>
-              
+
               <motion.button
-                whileHover={{ scale: 1.03, boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" }}
+                whileHover={{
+                  scale: 1.03,
+                  boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)",
+                }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full flex justify-center items-center px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-medium shadow-lg hover:shadow-cyan-500/30 transition-all"
+                className="w-full flex justify-center items-center px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium shadow-lg hover:shadow-blue-500/30 transition-all"
               >
                 <Send className="w-5 h-5 mr-2" />
                 Send Message
@@ -157,40 +215,52 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold dark:text-white text-gray-900 mb-6">
                 Contact Information
               </h2>
-              
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full dark:bg-cyan-500/10 bg-cyan-100 text-cyan-600 dark:text-cyan-400">
+                  <div className="p-3 rounded-full dark:bg-gray-800/30 bg-gray-100 text-gray-600 dark:text-gray-400">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-medium dark:text-gray-300 text-gray-700">Email</h3>
-                    <a href="mailto:contact@dynexia.com" className="text-cyan-600 dark:text-cyan-400 hover:underline">
+                    <h3 className="font-medium dark:text-gray-300 text-gray-700">
+                      Email
+                    </h3>
+                    <a
+                      href="mailto:contact@dynexia.com"
+                      className="text-gray-600 dark:text-gray-400 hover:underline"
+                    >
                       contact@dynexia.com
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full dark:bg-cyan-500/10 bg-cyan-100 text-cyan-600 dark:text-cyan-400">
+                  <div className="p-3 rounded-full dark:bg-gray-800/30 bg-gray-100 text-gray-600 dark:text-gray-400">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-medium dark:text-gray-300 text-gray-700">Phone</h3>
-                    <a href="tel:+11234567890" className="text-cyan-600 dark:text-cyan-400 hover:underline">
+                    <h3 className="font-medium dark:text-gray-300 text-gray-700">
+                      Phone
+                    </h3>
+                    <a
+                      href="tel:+11234567890"
+                      className="text-gray-600 dark:text-gray-400 hover:underline"
+                    >
                       +1 (123) 456-7890
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full dark:bg-cyan-500/10 bg-cyan-100 text-cyan-600 dark:text-cyan-400">
+                  <div className="p-3 rounded-full dark:bg-gray-800/30 bg-gray-100 text-gray-600 dark:text-gray-400">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-medium dark:text-gray-300 text-gray-700">Office</h3>
+                    <h3 className="font-medium dark:text-gray-300 text-gray-700">
+                      Office
+                    </h3>
                     <p className="dark:text-gray-400 text-gray-600">
-                      123 Tech Street<br />
+                      123 Tech Street
+                      <br />
                       San Francisco, CA 94107
                     </p>
                   </div>
@@ -203,7 +273,7 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold dark:text-white text-gray-900 mb-6">
                 Follow Us
               </h2>
-              
+
               <div className="flex flex-wrap gap-4">
                 <motion.a
                   whileHover={{ y: -3 }}
@@ -214,7 +284,7 @@ export default function ContactPage() {
                 >
                   <Linkedin className="w-5 h-5" />
                 </motion.a>
-                
+
                 <motion.a
                   whileHover={{ y: -3 }}
                   href="https://twitter.com/dynexia"
@@ -224,7 +294,7 @@ export default function ContactPage() {
                 >
                   <Twitter className="w-5 h-5" />
                 </motion.a>
-                
+
                 <motion.a
                   whileHover={{ y: -3 }}
                   href="https://github.com/dynexia"

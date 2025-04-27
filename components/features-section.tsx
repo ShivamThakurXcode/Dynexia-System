@@ -9,9 +9,16 @@ import {
   Languages,
   SquarePen,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export function FeaturesSection() {
+  const ref = useRef(null);
+  const inView = useInView(ref, {
+    once: true,
+    amount: 0.1,
+  });
+
   const features = [
     {
       icon: <ScanFace className="size-5" />,
@@ -73,22 +80,55 @@ export function FeaturesSection() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <section className="py-12 md:py-24 px-4 sm:px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 md:mb-20"
+        >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white leading-tight">
             Comprehensive IT Services & Solutions
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Cutting-edge solutions tailored to your business needs
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {features.map((feature, index) => (
             <motion.div
               key={index}
+              variants={itemVariants}
               whileHover={{ y: -5 }}
               className={`group relative overflow-hidden rounded-xl p-6 ${feature.color} border ${feature.borderColor} border-opacity-20 dark:border-opacity-30 transition-all duration-300 hover:shadow-lg hover:shadow-[${feature.borderColor}]/10`}
             >
@@ -127,7 +167,7 @@ export function FeaturesSection() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,11 +1,8 @@
 "use client";
 import { CTASection } from "@/components/cta-section";
-import { motion } from "framer-motion";
-
 import {
   Users,
   Rocket,
-  Target,
   Globe,
   Cpu,
   BarChart,
@@ -28,13 +25,11 @@ const FeatureCard = ({
   description: string;
   color: string;
 }) => (
-  <motion.div
-    whileHover={{ y: -5 }}
-    transition={{ type: "spring", stiffness: 300 }}
+  <div
     className={`h-full border rounded-2xl p-6 backdrop-blur-sm 
       dark:border-gray-800 border-gray-200
       dark:bg-gradient-to-b dark:from-gray-900/50 dark:to-gray-800/20
-      bg-gradient-to-b from-gray-50/80 to-white`}
+      bg-gradient-to-b from-gray-50/80 to-white hover:shadow-lg transition-shadow duration-300`}
   >
     <div className="relative">
       <div
@@ -47,7 +42,7 @@ const FeatureCard = ({
       {title}
     </h3>
     <p className="dark:text-gray-300 text-gray-700">{description}</p>
-  </motion.div>
+  </div>
 );
 
 export default function AboutPage() {
@@ -59,14 +54,9 @@ export default function AboutPage() {
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] dark:bg-purple-500/10 bg-purple-200/20 rounded-full filter blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 py-20 md:px-6 max-w-7xl">
+      <div className="container mx-auto px-4 py-20 pb-0 md:px-6 max-w-7xl">
         {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center mb-24"
-        >
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center mb-24">
           <div className="space-y-6">
             <div
               className="inline-flex items-center px-4 py-1.5 rounded-full dark:bg-blue-900/30 bg-blue-100 
@@ -105,17 +95,11 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="relative"
-          >
+          <div className="relative">
             <div
               className="absolute -inset-4 rounded-3xl dark:bg-gradient-to-br dark:from-blue-500/20 dark:to-purple-500/10 
               bg-gradient-to-br from-blue-100/40 to-purple-100/20 blur-xl"
             />
-
             <Image
               alt="Dynexia Team"
               className="relative rounded-2xl dark:border-gray-800/50 border-gray-200 w-full h-auto aspect-square object-cover"
@@ -124,8 +108,8 @@ export default function AboutPage() {
               src="/app-dark.webp"
               priority
             />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Core Values */}
         <div className="space-y-12 mb-24">
@@ -164,16 +148,8 @@ export default function AboutPage() {
                 icon: BarChart,
                 color: "dark:text-white text-black",
               },
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <FeatureCard {...item} />
-              </motion.div>
+            ].map((item) => (
+              <FeatureCard key={item.title} {...item} />
             ))}
           </div>
         </div>
@@ -208,15 +184,8 @@ export default function AboutPage() {
                     "All solutions are designed for scalability from day one, leveraging auto-scaling, serverless architectures, and edge computing.",
                   color: "dark:text-white text-black",
                 },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className="flex gap-4"
-                >
+              ].map((item) => (
+                <div key={item.title} className="flex gap-4">
                   <div className={`flex-shrink-0 ${item.color}`}>
                     <item.icon className="h-8 w-8" />
                   </div>
@@ -228,7 +197,7 @@ export default function AboutPage() {
                       {item.description}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -255,15 +224,8 @@ export default function AboutPage() {
                     "We architect systems with upgrade paths for coming technologies like Web3 and quantum computing.",
                   color: "dark:text-white text-black",
                 },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className="flex gap-4"
-                >
+              ].map((item) => (
+                <div key={item.title} className="flex gap-4">
                   <div className={`flex-shrink-0 ${item.color}`}>
                     <item.icon className="h-8 w-8" />
                   </div>
@@ -275,7 +237,7 @@ export default function AboutPage() {
                       {item.description}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -304,16 +266,12 @@ export default function AboutPage() {
               label: "Satisfaction Rating",
               color: "dark:text-white text-black",
             },
-          ].map((stat, index) => (
-            <motion.div
+          ].map((stat) => (
+            <div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
               className={`text-center p-6 rounded-2xl dark:border-gray-800 border-gray-200 
                 dark:bg-gradient-to-b dark:from-gray-900/30 dark:to-transparent
-                bg-gradient-to-b from-gray-50/80 to-white`}
+                bg-gradient-to-b from-gray-50/80 to-white hover:shadow-lg transition-shadow duration-300`}
             >
               <div
                 className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color}`}
@@ -323,10 +281,23 @@ export default function AboutPage() {
               <div className="dark:text-gray-300 text-gray-700 text-sm">
                 {stat.label}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-        <CTASection></CTASection>
+
+        {/* Enhanced CTA Section */}
+        <div className="text-center mb-24">
+          <a
+            href="/contact"
+            className="inline-block px-8 py-4 text-lg font-semibold dark:text-white text-black rounded-full 
+              bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 
+              transition-all duration-300"
+          >
+            Start Your Digital Transformation
+          </a>
+        </div>
+
+        <CTASection />
       </div>
     </div>
   );
