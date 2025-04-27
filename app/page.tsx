@@ -10,17 +10,18 @@ import { MarqueeDemoVertical } from "@/components/webPreview-section";
 import { CTASection } from "@/components/cta-section";
 import { MarqueeDemo } from "@/components/testimonial-section";
 import ScrollEffectCards from "@/components/ui/HoverEffectCards";
-
+import { FAQSection } from "@/components/faq-section";
 export default function Home() {
   return (
     <>
-      <Hero></Hero>
-      <ToolsSection></ToolsSection>
-      <FeaturesSection></FeaturesSection>
-      <DynexiaBentoGrid></DynexiaBentoGrid>
-      <MarqueeDemoVertical></MarqueeDemoVertical>
-      <MarqueeDemo></MarqueeDemo>
-      <CTASection></CTASection>
+      <Hero />
+      <ToolsSection />
+      <FeaturesSection />
+      <MarqueeDemoVertical />
+      <DynexiaBentoGrid />
+      <MarqueeDemo />
+      <FAQSection />
+      <CTASection />
     </>
   );
 }

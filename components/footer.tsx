@@ -153,7 +153,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium shadow-sm hover:shadow-md transition-all"
+                  className="absolute right-1 top-1 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 text-white px-4 py-2 rounded-md text-sm font-medium"
                 >
                   Subscribe
                 </button>

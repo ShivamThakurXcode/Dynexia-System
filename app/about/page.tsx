@@ -13,10 +13,21 @@ import {
   Shield,
   Server,
   Layers,
+  LucideIcon,
 } from "lucide-react";
 import Image from "next/image";
 
-const FeatureCard = ({ icon: Icon, title, description, color }) => (
+const FeatureCard = ({
+  icon: Icon,
+  title,
+  description,
+  color,
+}: {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  color: string;
+}) => (
   <motion.div
     whileHover={{ y: -5 }}
     transition={{ type: "spring", stiffness: 300 }}

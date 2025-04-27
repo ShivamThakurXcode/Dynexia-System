@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 
 export function CTASection() {
   return (
-    <section className="relative mx-5 py-20 overflow-hidden">
+    <section className="relative mx-5 py-20 mb-20 overflow-hidden">
       {/* Glowing gradient background elements */}
       <div className="absolute inset-0 overflow-hidden border dark:border-white/10 border-black/10 rounded-2xl">
         <div className="absolute -top-20 -left-20 w-64 h-64 bg-purple-600 rounded-full filter blur-[80px] opacity-20 dark:opacity-20"></div>
@@ -22,12 +22,12 @@ export function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="px-8 py-6 text-lg bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 text-white">
+            <Button className="px-8 py-6 text-lg bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 text-white rounded-xl">
               Book a Free Consultation
             </Button>
             <Button
               variant="outline"
-              className="px-8 py-6 text-lg border-gray-300 dark:border-white/30 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 hover:border-gray-400 dark:hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+              className="px-8 py-6 text-lg border-gray-300 dark:border-white/30 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 hover:border-gray-400 dark:hover:border-white/50 transition-all duration-300 backdrop-blur-sm rounded-xl"
             >
               View Our Portfolio
             </Button>

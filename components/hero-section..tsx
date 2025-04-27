@@ -4,8 +4,8 @@ import ScrollEffectCards from "./ui/HoverEffectCards";
 export default function Hero() {
   return (
     <>
-      {/* Hero */}
-      <div className="container pb-10     py-24 pt-32 ">
+      {" "}
+      <div className="container pb-10 py-24 pt-32">
         <img
           alt="shape"
           loading="lazy"
@@ -28,33 +28,31 @@ export default function Hero() {
           style={{ color: "transparent" }}
         />
 
-        {/* Grid */}
-        <div className="grid  md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
           <div>
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl hover:cursor-pointer">
               Dynexia System: Your IT Solution Provider
             </h1>
-            <p className="mt-3 text-xl text-muted-foreground">
+            <p className="mt-3 text-xl text-muted-foreground hover:cursor-pointer">
               Simplify your IT needs with Dynexia System, the ultimate web
               development agency that provides IT solutions.
             </p>
-            {/* Buttons */}
             <div className="mt-7 grid gap-3 w-full sm:inline-flex">
-              <Button size={"lg"}>Get started</Button>
-              <Button variant={"outline"} size={"lg"}>
+              <Button size={"lg"} className="hover:cursor-pointer">
+                Get started
+              </Button>
+              <Button
+                variant={"outline"}
+                size={"lg"}
+                className="hover:cursor-pointer"
+              >
                 Contact us
               </Button>
             </div>
-            {/* End Buttons */}
           </div>
-          {/* Col */}
-
-          {/* End Col */}
         </div>
-        {/* End Grid */}
-        <ScrollEffectCards></ScrollEffectCards>
       </div>
-      {/* End Hero */}
+      <ScrollEffectCards></ScrollEffectCards>
     </>
   );
 }
