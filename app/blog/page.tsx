@@ -7,48 +7,7 @@ import { blogPosts } from "./blogData";
 import { notFound } from "next/navigation";
 import { useState } from "react";
 import { CTASection } from "@/components/cta-section";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "IT Solutions Blog | Dynexia Insights",
-  description:
-    "Latest articles on web development, mobile apps, cloud solutions and digital transformation trends from Dynexia's IT experts.",
-  keywords: [
-    "IT blog",
-    "technology articles",
-    "web development blog India",
-    "software trends",
-    "Dynexia insights",
-  ],
-  alternates: {
-    canonical: "/blog",
-  },
-  openGraph: {
-    title: "Dynexia IT Solutions Blog - Technology Insights",
-    description:
-      "Expert articles on software development, digital transformation and emerging tech trends",
-    url: "https://www.dynexia.com/blog",
-    images: [
-      {
-        url: "/images/blog-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Dynexia Technology Blog",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Dynexia Technology Blog",
-    description: "Cutting-edge insights from IT solution developers",
-    images: ["/images/blog-twitter.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  // For dynamic blog posts, use generateMetadata function
-};
+import Head from "next/head";
 
 const BlogCard = ({
   title,
@@ -190,146 +149,184 @@ export default function BlogPage() {
     activeCategory === "All" || featuredPost.category === activeCategory;
 
   return (
-    <div className="relative overflow-visible bg-transparent">
-      {/* Background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full filter blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] dark:bg-purple-500/10 bg-purple-200/20 rounded-full filter blur-3xl" />
-      </div>
+    <>
+      <Head>
+        <title>IT Solutions Blog | Dynexia Insights</title>
+        <meta
+          name="description"
+          content="Latest articles on web development, mobile apps, cloud solutions and digital transformation trends from Dynexia's IT experts."
+        />
+        <meta
+          name="keywords"
+          content="IT blog, technology articles, web development blog India, software trends, Dynexia insights"
+        />
 
-      <div className="container mx-auto px-4 py-20 pb-0 md:px-6 max-w-7xl">
-        {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-24 text-center"
-        >
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full dark:bg-blue-900/30 bg-blue-100 dark:border-blue-500/30 border-blue-200 dark:text-white text-black text-sm mb-4">
-            <span className="relative flex h-2 w-2 mr-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full dark:bg-blue-400 bg-blue-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 dark:bg-blue-500 bg-blue-600"></span>
-            </span>
-            Our Blog
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight dark:text-white text-black mb-4">
-            Dynexia
-            <span className="dark:text-white text-black"> Blog</span>
-          </h1>
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.dynexia.com/blog" />
+        <meta
+          property="og:title"
+          content="Dynexia IT Solutions Blog - Technology Insights"
+        />
+        <meta
+          property="og:description"
+          content="Expert articles on software development, digital transformation and emerging tech trends"
+        />
+        <meta property="og:image" content="/images/blog-og.jpg" />
 
-          <p className="text-lg dark:text-gray-300 text-gray-700 max-w-2xl mx-auto">
-            Cutting-edge insights on web development, design, and emerging
-            technologies from our team of experts.
-          </p>
-        </motion.div>
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Dynexia Technology Blog" />
+        <meta
+          property="twitter:description"
+          content="Cutting-edge insights from IT solution developers"
+        />
+        <meta property="twitter:image" content="/images/blog-twitter.jpg" />
 
-        {/* Categories */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap gap-4 justify-center mb-16"
-        >
-          {categories.map((category, index) => (
-            <CategoryPill
-              key={index}
-              name={`${category.name} (${category.count})`}
-              active={category.name === activeCategory}
-              onClick={() => setActiveCategory(category.name)}
-            />
-          ))}
-        </motion.div>
+        <link rel="canonical" href="https://www.dynexia.com/blog" />
+      </Head>
 
-        {/* Featured Post - Only show when category matches */}
-        {showFeaturedPost && (
+      <div className="relative overflow-visible bg-transparent">
+        {/* Background elements */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full filter blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] dark:bg-purple-500/10 bg-purple-200/20 rounded-full filter blur-3xl" />
+        </div>
+
+        <div className="container mx-auto px-4 py-20 pb-0 md:px-6 max-w-7xl">
+          {/* Hero Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-24 text-center"
+          >
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full dark:bg-blue-900/30 bg-blue-100 dark:border-blue-500/30 border-blue-200 dark:text-white text-black text-sm mb-4">
+              <span className="relative flex h-2 w-2 mr-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full dark:bg-blue-400 bg-blue-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 dark:bg-blue-500 bg-blue-600"></span>
+              </span>
+              Our Blog
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight dark:text-white text-black mb-4">
+              Dynexia
+              <span className="dark:text-white text-black"> Blog</span>
+            </h1>
+
+            <p className="text-lg dark:text-gray-300 text-gray-700 max-w-2xl mx-auto">
+              Cutting-edge insights on web development, design, and emerging
+              technologies from our team of experts.
+            </p>
+          </motion.div>
+
+          {/* Categories */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap gap-4 justify-center mb-16"
+          >
+            {categories.map((category, index) => (
+              <CategoryPill
+                key={index}
+                name={`${category.name} (${category.count})`}
+                active={category.name === activeCategory}
+                onClick={() => setActiveCategory(category.name)}
+              />
+            ))}
+          </motion.div>
+
+          {/* Featured Post - Only show when category matches */}
+          {showFeaturedPost && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="mb-20"
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center dark:text-white text-black">
+                Featured Article
+              </h2>
+              <div className="relative rounded-2xl overflow-hidden border dark:border-gray-800 border-gray-200">
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                  <div className="h-64 lg:h-auto relative">
+                    <Image
+                      src={featuredPost.image}
+                      alt={featuredPost.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="p-8 lg:p-12 dark:bg-gradient-to-b dark:from-gray-900/50 dark:to-gray-800/20 bg-gradient-to-b from-gray-50/80 to-white">
+                    <div className="flex gap-4 mb-4">
+                      <span className="flex items-center text-sm text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+                        <CalendarDays className="w-4 h-4 mr-1 text-blue-500" />
+                        {featuredPost.date}
+                      </span>
+                      <span className="flex items-center text-sm dark:text-white text-black">
+                        <Clock className="w-4 h-4 mr-1" />
+                        {featuredPost.readTime}
+                      </span>
+                    </div>
+
+                    <h2 className="text-3xl font-bold dark:text-white text-black mb-4">
+                      {featuredPost.title}
+                    </h2>
+                    <p className="dark:text-gray-300 text-gray-700 mb-6">
+                      {featuredPost.excerpt}
+                    </p>
+
+                    <Link
+                      href={`/blog/${featuredPost.slug}`}
+                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium shadow-lg shadow-blue-500/20"
+                    >
+                      Read Featured Article
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* All Posts */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-20"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center dark:text-white text-black">
-              Featured Article
+            <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center dark:text-white text-black">
+              Latest Articles
             </h2>
-            <div className="relative rounded-2xl overflow-hidden border dark:border-gray-800 border-gray-200">
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="h-64 lg:h-auto relative">
-                  <Image
-                    src={featuredPost.image}
-                    alt={featuredPost.title}
-                    fill
-                    className="object-cover"
+            <div className="grid grid-cols-1 md:grid-cols-2 pb-20 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <BlogCard
+                    title={post.title}
+                    excerpt={post.excerpt}
+                    date={post.date}
+                    readTime={post.readTime}
+                    image={post.image}
+                    slug={post.slug}
+                    disableDetails={post.disableDetails}
                   />
-                </div>
-
-                <div className="p-8 lg:p-12 dark:bg-gradient-to-b dark:from-gray-900/50 dark:to-gray-800/20 bg-gradient-to-b from-gray-50/80 to-white">
-                  <div className="flex gap-4 mb-4">
-                    <span className="flex items-center text-sm text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
-                      <CalendarDays className="w-4 h-4 mr-1 text-blue-500" />
-                      {featuredPost.date}
-                    </span>
-                    <span className="flex items-center text-sm dark:text-white text-black">
-                      <Clock className="w-4 h-4 mr-1" />
-                      {featuredPost.readTime}
-                    </span>
-                  </div>
-
-                  <h2 className="text-3xl font-bold dark:text-white text-black mb-4">
-                    {featuredPost.title}
-                  </h2>
-                  <p className="dark:text-gray-300 text-gray-700 mb-6">
-                    {featuredPost.excerpt}
-                  </p>
-
-                  <Link
-                    href={`/blog/${featuredPost.slug}`}
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium shadow-lg shadow-blue-500/20"
-                  >
-                    Read Featured Article
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </div>
-              </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
-        )}
-
-        {/* All Posts */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center dark:text-white text-black">
-            Latest Articles
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 pb-20 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <BlogCard
-                  title={post.title}
-                  excerpt={post.excerpt}
-                  date={post.date}
-                  readTime={post.readTime}
-                  image={post.image}
-                  slug={post.slug}
-                  disableDetails={post.disableDetails}
-                />
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-        <CTASection />
+          <CTASection />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
