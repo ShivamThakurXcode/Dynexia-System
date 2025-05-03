@@ -1,4 +1,21 @@
 "use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our IT Services - Dynexia Solutions",
+  description:
+    "Comprehensive IT services including web development, mobile apps, cloud solutions, and digital transformation from Dynexia.",
+  keywords: [
+    "IT services",
+    "web development services",
+    "mobile app development",
+    "cloud solutions",
+    "digital transformation services",
+  ],
+  alternates: {
+    canonical: "/services",
+  },
+};
 import { CTASection } from "@/components/cta-section";
 import {
   Code,

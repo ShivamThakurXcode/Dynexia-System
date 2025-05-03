@@ -7,6 +7,48 @@ import { blogPosts } from "./blogData";
 import { notFound } from "next/navigation";
 import { useState } from "react";
 import { CTASection } from "@/components/cta-section";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "IT Solutions Blog | Dynexia Insights",
+  description:
+    "Latest articles on web development, mobile apps, cloud solutions and digital transformation trends from Dynexia's IT experts.",
+  keywords: [
+    "IT blog",
+    "technology articles",
+    "web development blog India",
+    "software trends",
+    "Dynexia insights",
+  ],
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Dynexia IT Solutions Blog - Technology Insights",
+    description:
+      "Expert articles on software development, digital transformation and emerging tech trends",
+    url: "https://www.dynexia.com/blog",
+    images: [
+      {
+        url: "/images/blog-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dynexia Technology Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dynexia Technology Blog",
+    description: "Cutting-edge insights from IT solution developers",
+    images: ["/images/blog-twitter.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  // For dynamic blog posts, use generateMetadata function
+};
 
 const BlogCard = ({
   title,

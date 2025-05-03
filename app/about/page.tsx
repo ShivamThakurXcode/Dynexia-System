@@ -1,4 +1,24 @@
 "use client";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "About Us - Dynexia IT Solutions",
+  description:
+    "Learn about Dynexia - our mission, vision, and the team behind your trusted IT solution development agency in India.",
+  keywords: [
+    "about dynexia",
+    "IT company about us",
+    "software development team",
+  ],
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Dynexia - Our IT Solutions Journey",
+    description:
+      "Discover the story behind Dynexia and our commitment to delivering exceptional IT solutions",
+  },
+};
+
 import { CTASection } from "@/components/cta-section";
 import {
   Users,
@@ -13,7 +33,6 @@ import {
   LucideIcon,
 } from "lucide-react";
 import Image from "next/image";
-
 const FeatureCard = ({
   icon: Icon,
   title,

@@ -1,4 +1,20 @@
 "use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Portfolio - Dynexia IT Projects",
+  description:
+    "Explore our portfolio of successful IT projects and solutions delivered to clients across industries.",
+  keywords: [
+    "IT portfolio",
+    "web development projects",
+    "mobile app case studies",
+    "software development examples",
+  ],
+  alternates: {
+    canonical: "/portfolio",
+  },
+};
 import { motion } from "framer-motion";
 import { Code, Globe, Server, Smartphone, Database, Cpu } from "lucide-react";
 import Image from "next/image";
@@ -20,7 +36,7 @@ const ProjectCard = ({ title, description, tags, image, link }) => (
     <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
       <div className="flex flex-wrap gap-2 mb-3">
         {tags.map((tag, i) => (
-          <span 
+          <span
             key={i}
             className="px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm bg-white/10 text-white border border-white/10"
           >
@@ -30,13 +46,23 @@ const ProjectCard = ({ title, description, tags, image, link }) => (
       </div>
       <h3 className="text-xl font-bold text-white mb-1">{title}</h3>
       <p className="text-gray-300 text-sm">{description}</p>
-      <a 
-        href={link} 
+      <a
+        href={link}
         className="mt-3 inline-flex items-center text-cyan-400 hover:text-cyan-300 text-sm font-medium"
       >
         View Project
-        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        <svg
+          className="w-4 h-4 ml-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          />
         </svg>
       </a>
     </div>
@@ -53,7 +79,9 @@ const ServiceCard = ({ icon: Icon, title, description }) => (
       <div className="absolute -top-12 -left-2 w-24 h-24 rounded-full filter blur-3xl bg-cyan-500/10" />
       <Icon className="h-10 w-10 mb-4 relative z-10 text-cyan-600 dark:text-cyan-400" />
     </div>
-    <h3 className="text-xl font-semibold dark:text-white text-black mb-2">{title}</h3>
+    <h3 className="text-xl font-semibold dark:text-white text-black mb-2">
+      {title}
+    </h3>
     <p className="dark:text-gray-300 text-gray-700">{description}</p>
   </motion.div>
 );
@@ -62,50 +90,55 @@ export default function PortfolioPage() {
   const projects = [
     {
       title: "Enterprise SaaS Platform",
-      description: "Scalable cloud solution for Fortune 500 companies with AI integration",
+      description:
+        "Scalable cloud solution for Fortune 500 companies with AI integration",
       tags: ["Web App", "Cloud", "AI"],
       image: "/project1.jpg",
-      link: "#"
+      link: "#",
     },
     {
       title: "Blockchain Payment Gateway",
-      description: "Decentralized payment processing with near-instant settlement",
+      description:
+        "Decentralized payment processing with near-instant settlement",
       tags: ["Blockchain", "Fintech", "Web3"],
       image: "/project2.jpg",
-      link: "#"
+      link: "#",
     },
     {
       title: "IoT Fleet Management",
       description: "Real-time tracking and analytics for logistics companies",
       tags: ["IoT", "Big Data", "Mobile"],
       image: "/project3.jpg",
-      link: "#"
+      link: "#",
     },
     {
       title: "Healthcare AI Assistant",
       description: "Diagnostic support system for medical professionals",
       tags: ["AI/ML", "Healthcare", "NLP"],
       image: "/project4.jpg",
-      link: "#"
-    }
+      link: "#",
+    },
   ];
 
   const services = [
     {
       icon: Code,
       title: "Custom Web Development",
-      description: "Tailored web applications built with modern frameworks like Next.js and React"
+      description:
+        "Tailored web applications built with modern frameworks like Next.js and React",
     },
     {
       icon: Server,
       title: "Cloud Architecture",
-      description: "Scalable cloud solutions using AWS, Azure, and GCP with Kubernetes"
+      description:
+        "Scalable cloud solutions using AWS, Azure, and GCP with Kubernetes",
     },
     {
       icon: Cpu,
       title: "AI Integration",
-      description: "Machine learning models and AI-powered features for your applications"
-    }
+      description:
+        "Machine learning models and AI-powered features for your applications",
+    },
   ];
 
   return (
@@ -132,19 +165,22 @@ export default function PortfolioPage() {
             Our Portfolio
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight dark:text-white text-black mb-4">
-            Innovation <span className="dark:text-cyan-400 text-cyan-600">Showcase</span>
+            Innovation{" "}
+            <span className="dark:text-cyan-400 text-cyan-600">Showcase</span>
           </h1>
           <p className="text-lg dark:text-gray-300 text-gray-700 max-w-2xl mx-auto">
-            Explore our latest projects and solutions that are transforming industries and driving digital transformation.
+            Explore our latest projects and solutions that are transforming
+            industries and driving digital transformation.
           </p>
         </motion.div>
 
         {/* Projects Grid */}
         <div className="mb-24">
           <h2 className="text-3xl sm:text-4xl font-bold dark:text-white text-black mb-8 text-center">
-            Featured <span className="dark:text-cyan-400 text-cyan-600">Projects</span>
+            Featured{" "}
+            <span className="dark:text-cyan-400 text-cyan-600">Projects</span>
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
               <motion.div
@@ -163,9 +199,10 @@ export default function PortfolioPage() {
         {/* Services */}
         <div className="mb-24">
           <h2 className="text-3xl sm:text-4xl font-bold dark:text-white text-black mb-8 text-center">
-            Our <span className="dark:text-cyan-400 text-cyan-600">Solutions</span>
+            Our{" "}
+            <span className="dark:text-cyan-400 text-cyan-600">Solutions</span>
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <motion.div
@@ -184,10 +221,26 @@ export default function PortfolioPage() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
           {[
-            { value: "150+", label: "Projects Completed", color: "dark:text-white text-black" },
-            { value: "98%", label: "Client Satisfaction", color: "dark:text-white text-black" },
-            { value: "30+", label: "Technologies Used", color: "dark:text-white text-black" },
-            { value: "12", label: "Industries Served", color: "dark:text-white text-black" },
+            {
+              value: "150+",
+              label: "Projects Completed",
+              color: "dark:text-white text-black",
+            },
+            {
+              value: "98%",
+              label: "Client Satisfaction",
+              color: "dark:text-white text-black",
+            },
+            {
+              value: "30+",
+              label: "Technologies Used",
+              color: "dark:text-white text-black",
+            },
+            {
+              value: "12",
+              label: "Industries Served",
+              color: "dark:text-white text-black",
+            },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -197,7 +250,9 @@ export default function PortfolioPage() {
               viewport={{ once: true }}
               className="text-center p-6 rounded-2xl dark:border-gray-800 border-gray-200 dark:bg-gradient-to-b dark:from-gray-900/30 dark:to-transparent bg-gradient-to-b from-gray-50/80 to-white"
             >
-              <div className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color}`}>
+              <div
+                className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color}`}
+              >
                 {stat.value}
               </div>
               <div className="dark:text-gray-300 text-gray-700 text-sm">
@@ -213,7 +268,8 @@ export default function PortfolioPage() {
             Ready to Start Your Project?
           </h2>
           <p className="dark:text-gray-300 text-gray-700 max-w-2xl mx-auto mb-8">
-            Let's discuss how we can bring your vision to life with our expertise in cutting-edge web solutions.
+            Let's discuss how we can bring your vision to life with our
+            expertise in cutting-edge web solutions.
           </p>
           <motion.button
             whileHover={{ scale: 1.02 }}

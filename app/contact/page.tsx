@@ -1,4 +1,20 @@
 "use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Portfolio - Dynexia IT Projects",
+  description:
+    "Explore our portfolio of successful IT projects and solutions delivered to clients across industries.",
+  keywords: [
+    "IT portfolio",
+    "web development projects",
+    "mobile app case studies",
+    "software development examples",
+  ],
+  alternates: {
+    canonical: "/portfolio",
+  },
+};
 import { motion } from "framer-motion";
 import {
   Mail,

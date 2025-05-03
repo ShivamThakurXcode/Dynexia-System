@@ -1,5 +1,47 @@
 "use client";
 import { motion } from "framer-motion";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Book IT Consultation | Dynexia Experts",
+  description:
+    "Schedule a free consultation with Dynexia's IT specialists to discuss your project requirements and get expert advice.",
+  keywords: [
+    "IT consultation booking",
+    "free tech consultation",
+    "software development meeting",
+    "web development consultation India",
+    "schedule IT expert call",
+  ],
+  alternates: {
+    canonical: "/book",
+  },
+  openGraph: {
+    title: "Book Free IT Consultation with Dynexia",
+    description:
+      "Schedule a call with our technology experts to discuss your project needs",
+    url: "https://www.dynexia.com/book",
+    images: [
+      {
+        url: "/images/book-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Book IT Consultation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book Free IT Strategy Session",
+    description:
+      "Reserve your slot with Dynexia's technology consultants today",
+    images: ["/images/book-twitter.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 import {
   ArrowRight,
   CheckCircle,
